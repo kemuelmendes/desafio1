@@ -4,9 +4,6 @@ import 'constants.dart';
 
 sealed class Leilao63Theme {
   static const _defaultInputBorder = OutlineInputBorder(
-    borderRadius: BorderRadius.all(
-      Radius.circular(3),
-    ),
     borderSide: BorderSide(color: ColorsConstants.grey),
   );
 

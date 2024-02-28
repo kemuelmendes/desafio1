@@ -1,10 +1,12 @@
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
 
+import '../../config/env/env.dart';
+
 final class RestClient extends DioForNative {
   RestClient()
       : super(BaseOptions(
-          baseUrl: 'https://documenter.getpostman.com/view/3042830/Tz5qZGZN',
+          baseUrl: Env.i['backend_base_url'] ?? '',
           connectTimeout: const Duration(seconds: 10),
           receiveTimeout: const Duration(seconds: 60),
         )) {

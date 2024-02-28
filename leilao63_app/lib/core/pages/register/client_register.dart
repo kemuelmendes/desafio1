@@ -38,7 +38,7 @@ class _ClientRegisterState extends RegisterViewImpl
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: ColorsConstants.grey,
+        backgroundColor: Color.fromARGB(255, 63, 63, 63),
         appBar: AppBar(
           backgroundColor: Colors.black,
           iconTheme: const IconThemeData(color: Colors.white),
@@ -65,29 +65,27 @@ class _ClientRegisterState extends RegisterViewImpl
                         child: Text(
                           'Nome Completo',
                           style: TextStyle(
-                              color: Colors.black,
+                              color: Colors.white,
                               fontFamily: FontConstants.fontFamily,
                               fontSize: 15),
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 34, right: 34),
-                      child: SizedBox(
-                        height: 48,
-                        child: TextFormField(
-                          controller: nameTEC,
-                          decoration: const InputDecoration(
-                            labelText: 'Nome Completo',
-                            hintText: 'Nome Completo',
-                            floatingLabelBehavior: FloatingLabelBehavior.never,
-                            hintStyle: TextStyle(color: Colors.black),
-                            labelStyle: TextStyle(
-                              color: Colors.black,
-                            ),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * .84,
+                      height: MediaQuery.of(context).size.height * 0.06,
+                      child: TextFormField(
+                        controller: nameTEC,
+                        decoration: const InputDecoration(
+                          labelText: 'Nome Completo',
+                          hintText: 'Nome Completo',
+                          floatingLabelBehavior: FloatingLabelBehavior.never,
+                          hintStyle: TextStyle(color: Colors.white),
+                          labelStyle: TextStyle(
+                            color: Colors.black,
                           ),
-                          validator: Validatorless.required('Obrigatório'),
                         ),
+                        validator: Validatorless.required('Obrigatório'),
                       ),
                     ),
                     const SizedBox(
@@ -101,32 +99,32 @@ class _ClientRegisterState extends RegisterViewImpl
                         child: Text(
                           'E-mail',
                           style: TextStyle(
-                              color: Colors.black,
+                              color: Colors.white,
                               fontFamily: FontConstants.fontFamily,
                               fontSize: 15),
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 34, right: 34),
-                      child: SizedBox(
-                        height: 48,
-                        child: TextFormField(
-                          controller: emailTEC,
-                          decoration: const InputDecoration(
-                            labelText: 'E-mail',
-                            hintText: 'E-mail',
-                            floatingLabelBehavior: FloatingLabelBehavior.never,
-                            hintStyle: TextStyle(color: Colors.black),
-                            labelStyle: TextStyle(
-                              color: Colors.black,
-                            ),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * .84,
+                      height: MediaQuery.of(context).size.height * 0.06,
+                      child: TextFormField(
+                        controller: emailTEC,
+                        decoration: const InputDecoration(
+                          labelText: 'E-mail',
+                          hintText: 'E-mail',
+                          floatingLabelBehavior: FloatingLabelBehavior.never,
+                          hintStyle: TextStyle(
+                            color: Colors.black,
                           ),
-                          validator: Validatorless.multiple([
-                            Validatorless.required('Obrigatório'),
-                            Validatorless.email('E-mail inválido'),
-                          ]),
+                          labelStyle: TextStyle(
+                            color: Colors.black,
+                          ),
                         ),
+                        validator: Validatorless.multiple([
+                          Validatorless.required('Obrigatório'),
+                          Validatorless.email('E-mail inválido'),
+                        ]),
                       ),
                     ),
                     const SizedBox(
@@ -140,29 +138,29 @@ class _ClientRegisterState extends RegisterViewImpl
                         child: Text(
                           'Celular',
                           style: TextStyle(
-                              color: Colors.black,
+                              color: Colors.white,
                               fontFamily: FontConstants.fontFamily,
                               fontSize: 15),
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 34, right: 34),
-                      child: SizedBox(
-                        height: 48,
-                        child: TextFormField(
-                          controller: phoneTEC,
-                          decoration: const InputDecoration(
-                            labelText: 'Celular',
-                            hintText: 'Celular',
-                            floatingLabelBehavior: FloatingLabelBehavior.never,
-                            hintStyle: TextStyle(color: Colors.black),
-                            labelStyle: TextStyle(
-                              color: Colors.black,
-                            ),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * .84,
+                      height: MediaQuery.of(context).size.height * 0.06,
+                      child: TextFormField(
+                        controller: phoneTEC,
+                        decoration: const InputDecoration(
+                          labelText: 'Celular',
+                          hintText: 'Celular',
+                          floatingLabelBehavior: FloatingLabelBehavior.never,
+                          hintStyle: TextStyle(
+                            color: Colors.white,
                           ),
-                          validator: Validatorless.required('Obrigatório'),
+                          labelStyle: TextStyle(
+                            color: Colors.black,
+                          ),
                         ),
+                        validator: Validatorless.required('Obrigatório'),
                       ),
                     ),
                     const SizedBox(
@@ -176,33 +174,35 @@ class _ClientRegisterState extends RegisterViewImpl
                         child: Text(
                           'Senha',
                           style: TextStyle(
-                              color: Colors.black,
+                              color: Colors.white,
                               fontFamily: FontConstants.fontFamily,
                               fontSize: 15),
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 34, right: 34),
-                      child: SizedBox(
-                        height: 48,
-                        child: TextFormField(
-                          controller: passwordTEC,
-                          obscureText: true,
-                          decoration: const InputDecoration(
-                            labelText: 'Senha',
-                            hintText: 'Senha',
-                            floatingLabelBehavior: FloatingLabelBehavior.never,
-                            hintStyle: TextStyle(color: Colors.black),
-                            labelStyle: TextStyle(
-                              color: Colors.black,
-                            ),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * .84,
+                      height: MediaQuery.of(context).size.height * 0.06,
+                      child: TextFormField(
+                        controller: passwordTEC,
+                        obscureText: true,
+                        decoration: const InputDecoration(
+                          labelText: 'Senha',
+                          hintText: 'Senha',
+                          floatingLabelBehavior: FloatingLabelBehavior.never,
+                          hintStyle: TextStyle(
+                            color: Colors.white,
                           ),
-                          validator: Validatorless.multiple([
+                          labelStyle: TextStyle(
+                            color: Colors.white,
+                          ),
+                        ),
+                        validator: Validatorless.multiple(
+                          [
                             Validatorless.required('Obrigatório'),
                             Validatorless.min(
                                 6, 'Senha deve conter pelo menos 6 caracters'),
-                          ]),
+                          ],
                         ),
                       ),
                     ),
@@ -217,36 +217,36 @@ class _ClientRegisterState extends RegisterViewImpl
                         child: Text(
                           'Confirmar Senha',
                           style: TextStyle(
-                              color: Colors.black,
+                              color: Colors.white,
                               fontFamily: FontConstants.fontFamily,
                               fontSize: 15),
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 34, right: 34),
-                      child: SizedBox(
-                        height: 48,
-                        child: TextFormField(
-                          controller: confirmPasswordTEC,
-                          obscureText: true,
-                          decoration: const InputDecoration(
-                            labelText: 'Confirmar Senha',
-                            hintText: 'Confirmar Senha',
-                            floatingLabelBehavior: FloatingLabelBehavior.never,
-                            hintStyle: TextStyle(color: Colors.black),
-                            labelStyle: TextStyle(
-                              color: Colors.black,
-                            ),
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * .84,
+                      height: MediaQuery.of(context).size.height * 0.06,
+                      child: TextFormField(
+                        controller: confirmPasswordTEC,
+                        obscureText: true,
+                        decoration: const InputDecoration(
+                          labelText: 'Confirmar Senha',
+                          hintText: 'Confirmar Senha',
+                          floatingLabelBehavior: FloatingLabelBehavior.never,
+                          hintStyle: TextStyle(
+                            color: Colors.white,
                           ),
-                          validator: Validatorless.multiple([
-                            Validatorless.required('Obrigatório'),
-                            Validatorless.min(
-                                6, 'Senha deve conter pelo menos 6 caracteres'),
-                            Validatorless.compare(passwordTEC,
-                                'Senha diferente de confirma senha')
-                          ]),
+                          labelStyle: TextStyle(
+                            color: Colors.black,
+                          ),
                         ),
+                        validator: Validatorless.multiple([
+                          Validatorless.required('Obrigatório'),
+                          Validatorless.min(
+                              6, 'Senha deve conter pelo menos 6 caracteres'),
+                          Validatorless.compare(
+                              passwordTEC, 'Senha diferente de confirma senha')
+                        ]),
                       ),
                     ),
                     const SizedBox(

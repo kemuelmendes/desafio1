@@ -16,6 +16,7 @@ sealed class Leilao63Theme {
       border: _defaultInputBorder,
       enabledBorder: _defaultInputBorder,
       focusedBorder: _defaultInputBorder,
+      floatingLabelBehavior: FloatingLabelBehavior.never,
       errorBorder: _defaultInputBorder.copyWith(
         borderSide: const BorderSide(color: ColorsConstants.red),
       ),

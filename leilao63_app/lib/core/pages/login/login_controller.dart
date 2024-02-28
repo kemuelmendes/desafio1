@@ -1,21 +1,34 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-
-import 'package:dio/dio.dart';
-
-import '../../auth/restClient/rest_client.dart';
-
-// TODO: Criar variaveis loading e error usando mobx
+import 'package:leilao63_app/core/auth/repository/auth_repository.dart';
+import 'package:leilao63_app/core/exceptions/repository_exceptions.dart';
+import 'package:leilao63_app/core/exceptions/unauthourized_exxception.dart';
+import 'package:leilao63_app/core/local/auth_local_service.dart';
+import 'package:leilao63_app/core/ui/widgets/leilao63_loader.dart';
 
 class LoginController {
-  final RestClient restClient;
+  final AuthRepository authRepository;
+
   LoginController({
-    required this.restClient,
+    required this.authRepository,
   });
 
-  Future<void> login(String email, String password) async {
+  Future<String?> login(String email, String password) async {
+    const Leilao63Loader();
+
     try {
-      final response = await restClient.post('/auth/login');
-      print(response.data);
-    } on DioException catch (e) {}
+      final token =
+          await authRepository.login(email: email, password: password);
+
+      await AuthLocalService.setToken(token);
+
+      return null;
+    } on UnauthourizedExxception catch (e) {
+      return 'Email ou senha incorreto';
+    } on RepositoryExceptions catch (e) {
+      return e.message;
+    } catch (e) {
+      return "Desculpe algo deu errado. Por favor tente novamente mais tarde";
+    } finally {
+      const Leilao63Loader();
+    }
   }
 }

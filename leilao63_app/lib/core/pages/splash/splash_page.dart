@@ -24,7 +24,7 @@ class _SplashPageState extends SplashViewImpl {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      // Dependencies.init();
+      Dependencies.init();
       setState(
         () {
           _animationOpacityLogo = 1.0;

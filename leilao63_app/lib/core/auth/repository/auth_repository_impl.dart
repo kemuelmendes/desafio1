@@ -16,7 +16,7 @@ class AuthRepositoryImpl implements AuthRepository {
       {required String email, required String password}) async {
     try {
       final result = await dio.post('/auth/login', data: {
-        'email': email,
+        'username': email,
         'password': password,
       });
 
@@ -44,8 +44,11 @@ class AuthRepositoryImpl implements AuthRepository {
   @override
   Future<void> register(RegisterUserModel registerModel) async {
     try {
+      print(registerModel.toMap());
       await dio.unAuth.post('/auth/users', data: registerModel.toMap());
-    } on Exception catch (e, s) {
+    } on DioException catch (e, s) {
+      log('Data', error: e.response?.data);
+      log('Message', error: e.message);
       log('Erro ao registrar usuário', error: e, stackTrace: s);
       throw RepositoryExceptions(message: 'Erro ao registrar usuário');
     }

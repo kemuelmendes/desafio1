@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:leilao63_app/core/pages/login/login_controller.dart';
-
-import 'package:leilao63_app/core/pages/register/client_register.dart';
 import 'package:leilao63_app/core/ui/constants.dart';
+import 'package:leilao63_app/core/ui/helpers.dart';
 
 import '../register/register_router.dart';
 
@@ -14,13 +13,22 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginPageState extends State<LoginPage> with Messages<LoginPage> {
   final emailTEC = TextEditingController();
   final passwordTEC = TextEditingController();
 
-  void onLogin() {
-    final loginCtrl =
-        GetIt.I.get<LoginController>().login(emailTEC.text, passwordTEC.text);
+  void onLogin() async {
+    final String? message = await GetIt.I
+        .get<LoginController>()
+        .login(emailTEC.text, passwordTEC.text);
+
+    if (message != null) {
+      showError(message);
+    } else {
+      if (context.mounted) {
+        Navigator.of(context).pushNamed('/home');
+      }
+    }
   }
 
   @override
@@ -133,6 +141,7 @@ class _LoginPageState extends State<LoginPage> {
                           height: 48,
                           child: TextFormField(
                             controller: passwordTEC,
+                            obscureText: true,
                             decoration: const InputDecoration(
                               labelText: 'Senha',
                               hintText: 'Senha',
@@ -221,6 +230,3 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
-
-
-// PARA UPAR NO GIT
